@@ -1,0 +1,1018 @@
+/* ==========================================================================
+   TRIZEN — SMART TEXTILE MANAGEMENT & INNOVATION PLATFORM
+   Art Direction: Next-Generation Industrial Luxury, Smart Mill Automation,
+                  Yarn Movement, Precision Weaving & Haute Textile Technology
+   Palette: Midnight Navy (#0A1128), Deep Obsidian (#0B0F19), Slate (#1E2538),
+            Precision Champagne Gold (#C6A15B), Warm Ivory (#F8F9FA),
+            Textile Cyan / Intelligence Teal (#00C9A7, #38BDF8)
+   ========================================================================== */
+
+:root {
+  /* Signature TRIZEN Industrial-Luxury Palette */
+  --midnight: #0A1128;
+  --royal-navy: #0E172E;
+  --royal-navy-light: #162444;
+  --heritage-burgundy: #1B2A4A;
+  --heritage-burgundy-light: #2A3E6A;
+  --heritage-burgundy-dark: #0C1527;
+  --antique-gold: #C6A15B;
+  --antique-gold-light: #DFC78D;
+  --antique-gold-dark: #9F7E3E;
+  --champagne: #E6D5AD;
+  --champagne-light: #F4EEDC;
+  --warm-ivory: #F8F9FA;
+  --warm-ivory-dark: #EDECE8;
+  --soft-charcoal: #1E2433;
+  --soft-charcoal-light: #2C3549;
+
+  /* Smart Textile Sensor & Thread Accents */
+  --textile-cyan: #38BDF8;
+  --textile-teal: #00C9A7;
+  --textile-thread: #E6D5AD;
+  --textile-warp: rgba(198, 161, 91, 0.35);
+  --textile-weft: rgba(56, 189, 248, 0.3);
+
+  /* Surfaces & Borders */
+  --surface-obsidian: #080D1A;
+  --surface-card-light: #FFFFFF;
+  --surface-card-dark: #10182B;
+  --border-gold: rgba(198, 161, 91, 0.28);
+  --border-gold-strong: rgba(198, 161, 91, 0.6);
+  --border-light: rgba(198, 161, 91, 0.16);
+  --border-thread: rgba(56, 189, 248, 0.25);
+  --gold-glow: 0 0 28px rgba(198, 161, 91, 0.18);
+  --thread-glow: 0 0 20px rgba(56, 189, 248, 0.3);
+  --shadow-luxury: 0 16px 40px -10px rgba(10, 17, 40, 0.12), 0 0 0 1px rgba(198, 161, 91, 0.18);
+  --shadow-luxury-deep: 0 24px 60px -15px rgba(10, 17, 40, 0.35), 0 0 0 1px rgba(198, 161, 91, 0.3);
+
+  /* Typography */
+  --font-serif: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', 'Poppins', -apple-system, sans-serif;
+  --transition-silk: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-loom: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   Base & Resets
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F8F9FA;
+  color: var(--soft-charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(198, 161, 91, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.04) 0%, transparent 40%),
+    repeating-linear-gradient(0deg, rgba(198, 161, 91, 0.015) 0px, rgba(198, 161, 91, 0.015) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(90deg, rgba(198, 161, 91, 0.015) 0px, rgba(198, 161, 91, 0.015) 1px, transparent 1px, transparent 20px);
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  color: var(--midnight);
+  font-weight: 700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--antique-gold), var(--antique-gold-dark));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--champagne);
+}
+
+/* ==========================================================================
+   Innovative Textile Animations: Yarn Flow, Warp & Weft, Spindle Rotation
+   ========================================================================== */
+
+@keyframes threadDraw {
+  from {
+    stroke-dashoffset: 1400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes threadDashFlow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -80;
+  }
+}
+
+@keyframes shuttlePass {
+  0% {
+    transform: translateX(-16px);
+  }
+  50% {
+    transform: translateX(16px);
+  }
+  100% {
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes spindleTurn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes warpWeftGlaze {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes threadTravelWave {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(198, 161, 91, 0.5), inset 0 0 8px rgba(56, 189, 248, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(198, 161, 91, 0.3), inset 0 0 14px rgba(56, 189, 248, 0.6);
+  }
+}
+
+@keyframes loomPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(198, 161, 91, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(198, 161, 91, 0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yarnStrandWiggle {
+  0%, 100% {
+    d: path("M 0,25 Q 50,15 100,25 T 200,25 T 300,25 T 400,25 T 500,25 T 600,25 T 700,25 T 800,25");
+  }
+  50% {
+    d: path("M 0,25 Q 50,35 100,25 T 200,25 T 300,25 T 400,25 T 500,25 T 600,25 T 700,25 T 800,25");
+  }
+}
+
+.anim-fade-up {
+  animation: fadeSlideUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.thread-dash-animated {
+  stroke-dasharray: 8 6;
+  animation: threadDashFlow 2.4s linear infinite;
+}
+
+.spindle-spin {
+  animation: spindleTurn 8s linear infinite;
+  transform-origin: center center;
+}
+
+.shuttle-slide {
+  animation: shuttlePass 3s ease-in-out infinite;
+}
+
+.warp-weft-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(198, 161, 91, 0.08) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(198, 161, 91, 0.04) 0px, rgba(198, 161, 91, 0.04) 1px, transparent 1px, transparent 14px),
+    repeating-linear-gradient(90deg, rgba(56, 189, 248, 0.035) 0px, rgba(56, 189, 248, 0.035) 1px, transparent 1px, transparent 14px);
+  animation: warpWeftGlaze 60s linear infinite;
+}
+
+/* ==========================================================================
+   TRIZEN Industrial Brand Elements
+   ========================================================================== */
+
+.zari-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--antique-gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 1.25rem 0;
+  opacity: 0.85;
+}
+.zari-divider::before,
+.zari-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+}
+
+.gold-text-shimmer {
+  background: linear-gradient(90deg, var(--antique-gold-dark) 0%, var(--champagne) 50%, var(--antique-gold-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s linear infinite;
+}
+
+/* ==========================================================================
+   Luxury Navigation & Sidebar
+   ========================================================================== */
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.luxury-navbar {
+  background: linear-gradient(90deg, var(--midnight) 0%, var(--royal-navy) 100%);
+  border-bottom: 1px solid var(--border-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  padding: 10px 24px;
+}
+
+.luxury-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  font-size: 1.45rem;
+  color: var(--champagne);
+  text-decoration: none;
+}
+
+.luxury-crest-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--antique-gold);
+  background: linear-gradient(135deg, var(--heritage-burgundy), var(--midnight));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--champagne);
+  box-shadow: inset 0 0 10px rgba(198, 161, 91, 0.35);
+}
+
+/* Sidebar */
+.luxury-sidebar {
+  width: 290px;
+  background: linear-gradient(180deg, var(--midnight) 0%, #0F1626 60%, var(--royal-navy) 100%);
+  color: var(--champagne);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 24px 18px;
+  box-shadow: 10px 0 35px rgba(0, 0, 0, 0.3);
+  border-right: 1px solid var(--border-gold);
+  transition: var(--transition-silk);
+  z-index: 1020;
+  overflow-y: auto;
+}
+
+.luxury-sidebar .brand-masthead {
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-gold);
+  text-align: center;
+}
+
+.luxury-sidebar .brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 0.16em;
+  color: var(--champagne);
+  margin-bottom: 4px;
+}
+
+.luxury-sidebar .brand-sub {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--antique-gold);
+}
+
+/* User Card in Sidebar */
+.luxury-user-panel {
+  background: rgba(16, 24, 43, 0.6);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.luxury-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--heritage-burgundy), var(--antique-gold-dark));
+  border: 1px solid var(--antique-gold);
+  color: var(--champagne);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.luxury-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.luxury-sidebar ul li {
+  margin-bottom: 6px;
+}
+
+.luxury-sidebar ul li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(230, 213, 173, 0.8);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-silk);
+}
+
+.luxury-sidebar ul li button i {
+  font-size: 1.1rem;
+  color: var(--antique-gold);
+  transition: var(--transition-silk);
+}
+
+.luxury-sidebar ul li button:hover {
+  background: rgba(198, 161, 91, 0.08);
+  border-color: rgba(198, 161, 91, 0.3);
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.luxury-sidebar ul li button.active {
+  background: linear-gradient(90deg, rgba(100, 21, 47, 0.85) 0%, rgba(16, 24, 43, 0.85) 100%);
+  border: 1px solid var(--antique-gold);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(198, 161, 91, 0.2);
+}
+
+.luxury-sidebar ul li button.active i {
+  color: var(--champagne);
+  transform: scale(1.1);
+}
+
+.luxury-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: #F87171;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition-silk);
+}
+.luxury-logout-btn:hover {
+  background: rgba(220, 38, 38, 0.15);
+  border-color: #F87171;
+  color: #FFFFFF;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 290px;
+  width: calc(100% - 290px);
+  padding: 32px 36px;
+  min-height: 100vh;
+}
+
+/* Luxury Topbar Header */
+.luxury-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.luxury-header-block h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--midnight);
+  letter-spacing: 0.02em;
+}
+
+.luxury-header-block small {
+  color: #696E7E;
+  font-size: 0.92rem;
+}
+
+/* ==========================================================================
+   Luxury Cards & Surfaces
+   ========================================================================== */
+
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  box-shadow: var(--shadow-luxury);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-silk);
+}
+
+.luxury-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--heritage-burgundy) 0%, var(--antique-gold) 50%, var(--heritage-burgundy) 100%);
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-luxury-deep);
+  border-color: var(--border-gold-strong);
+}
+
+/* KPI Summary Cards */
+.kpi-luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-silk);
+  box-shadow: var(--shadow-luxury);
+}
+
+.kpi-luxury-card::after {
+  content: "✦";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  color: var(--antique-gold);
+  opacity: 0.35;
+  font-size: 1.1rem;
+}
+
+.kpi-luxury-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--antique-gold);
+  box-shadow: var(--shadow-luxury-deep);
+}
+
+.kpi-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  margin-bottom: 16px;
+  box-shadow: inset 0 0 12px rgba(198, 161, 91, 0.25);
+}
+
+.kpi-icon-burgundy {
+  background: linear-gradient(135deg, var(--heritage-burgundy), var(--heritage-burgundy-dark));
+  color: var(--champagne);
+  border: 1px solid var(--antique-gold);
+}
+
+.kpi-icon-navy {
+  background: linear-gradient(135deg, var(--royal-navy), var(--midnight));
+  color: var(--champagne);
+  border: 1px solid var(--antique-gold);
+}
+
+.kpi-icon-gold {
+  background: linear-gradient(135deg, var(--antique-gold-dark), var(--antique-gold));
+  color: var(--midnight);
+  border: 1px solid var(--champagne);
+}
+
+.kpi-icon-charcoal {
+  background: linear-gradient(135deg, var(--soft-charcoal), var(--midnight));
+  color: var(--champagne);
+  border: 1px solid var(--antique-gold);
+}
+
+.kpi-value {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--midnight);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6C7282;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Luxury Buttons
+   ========================================================================== */
+
+.btn-luxury-gold {
+  background: linear-gradient(135deg, var(--antique-gold) 0%, #D4B674 50%, var(--antique-gold-dark) 100%);
+  color: var(--midnight);
+  border: 1px solid var(--champagne);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 22px;
+  transition: var(--transition-silk);
+  box-shadow: 0 4px 14px rgba(198, 161, 91, 0.3);
+}
+
+.btn-luxury-gold:hover {
+  background: linear-gradient(135deg, #DFC78D 0%, #E6D5AD 50%, var(--antique-gold) 100%);
+  color: var(--midnight);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(198, 161, 91, 0.45);
+}
+
+.btn-luxury-burgundy {
+  background: linear-gradient(135deg, var(--heritage-burgundy) 0%, var(--heritage-burgundy-light) 100%);
+  color: var(--champagne);
+  border: 1px solid var(--antique-gold);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 10px 22px;
+  transition: var(--transition-silk);
+  box-shadow: 0 4px 14px rgba(100, 21, 47, 0.3);
+}
+
+.btn-luxury-burgundy:hover {
+  background: linear-gradient(135deg, var(--heritage-burgundy-light) 0%, #9F284F 100%);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(100, 21, 47, 0.45);
+}
+
+.btn-luxury-outline {
+  background: transparent;
+  color: var(--antique-gold-dark);
+  border: 1px solid var(--antique-gold);
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 18px;
+  transition: var(--transition-silk);
+}
+
+.btn-luxury-outline:hover {
+  background: rgba(198, 161, 91, 0.12);
+  color: var(--midnight);
+  border-color: var(--antique-gold-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Luxury Tables & Zero-Pill Metadata
+   ========================================================================== */
+
+.table-luxury {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-bottom: 0;
+}
+
+.table-luxury thead th {
+  background: rgba(16, 24, 43, 0.04);
+  color: var(--midnight);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+  font-weight: 700;
+}
+
+.table-luxury tbody tr {
+  background: #FFFFFF;
+  transition: var(--transition-silk);
+  box-shadow: 0 2px 8px rgba(10, 13, 22, 0.04);
+}
+
+.table-luxury tbody tr:hover {
+  background: #FAF7F0;
+  transform: scale(1.004);
+  box-shadow: 0 6px 18px rgba(198, 161, 91, 0.18);
+}
+
+.table-luxury td {
+  padding: 16px 18px;
+  vertical-align: middle;
+  border-top: 1px solid rgba(198, 161, 91, 0.12);
+  border-bottom: 1px solid rgba(198, 161, 91, 0.12);
+  font-size: 0.92rem;
+  color: var(--soft-charcoal);
+}
+
+.table-luxury td:first-child {
+  border-left: 1px solid rgba(198, 161, 91, 0.12);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.table-luxury td:last-child {
+  border-right: 1px solid rgba(198, 161, 91, 0.12);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Zero-Pill Status Indicators: Clean unboxed metadata with jewel pips */
+.status-pip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-pip::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-pip.completed::before,
+.status-pip.paid::before,
+.status-pip.available::before {
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+.status-pip.completed,
+.status-pip.paid,
+.status-pip.available {
+  color: #065F46;
+}
+
+.status-pip.in-progress::before,
+.status-pip.accepted::before {
+  background-color: var(--antique-gold);
+  box-shadow: 0 0 8px rgba(198, 161, 91, 0.6);
+}
+.status-pip.in-progress,
+.status-pip.accepted {
+  color: #8C6627;
+}
+
+.status-pip.pending::before,
+.status-pip.busy::before,
+.status-pip.low-stock::before {
+  background-color: #F59E0B;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+.status-pip.pending,
+.status-pip.busy,
+.status-pip.low-stock {
+  color: #92400E;
+}
+
+.status-pip.rejected::before,
+.status-pip.out-of-stock::before {
+  background-color: var(--heritage-burgundy);
+  box-shadow: 0 0 8px rgba(100, 21, 47, 0.5);
+}
+.status-pip.rejected,
+.status-pip.out-of-stock {
+  color: var(--heritage-burgundy);
+}
+
+/* ==========================================================================
+   Silk Production 6-Stage Stepper Pipeline
+   ========================================================================== */
+
+.silk-stepper-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 12px 10px;
+}
+
+.silk-stepper-line {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: rgba(198, 161, 91, 0.2);
+  z-index: 1;
+}
+
+.silk-stepper-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-silk);
+}
+
+.silk-stepper-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid rgba(198, 161, 91, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #6C7282;
+  transition: var(--transition-silk);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.silk-stepper-node.active .silk-stepper-circle {
+  background: linear-gradient(135deg, var(--heritage-burgundy), var(--heritage-burgundy-light));
+  border-color: var(--antique-gold);
+  color: var(--champagne);
+  animation: loomPulse 2.5s infinite;
+  box-shadow: 0 0 16px rgba(198, 161, 91, 0.5);
+}
+
+.silk-stepper-node.completed .silk-stepper-circle {
+  background: linear-gradient(135deg, var(--royal-navy), var(--midnight));
+  border-color: var(--antique-gold);
+  color: var(--champagne);
+}
+
+.silk-stepper-label {
+  font-size: 0.78rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: #6C7282;
+  text-align: center;
+}
+
+.silk-stepper-node.active .silk-stepper-label {
+  color: var(--heritage-burgundy);
+  font-weight: 700;
+}
+
+.silk-stepper-node.completed .silk-stepper-label {
+  color: var(--royal-navy);
+}
+
+/* ==========================================================================
+   Forms & Inputs
+   ========================================================================== */
+
+.form-luxury-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--midnight);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control-luxury,
+.form-select-luxury {
+  background: #FFFFFF;
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 0.94rem;
+  color: var(--midnight);
+  transition: var(--transition-silk);
+  width: 100%;
+}
+
+.form-control-luxury:focus,
+.form-select-luxury:focus {
+  border-color: var(--antique-gold);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.22);
+  outline: none;
+  background: #FFFDF9;
+}
+
+/* ==========================================================================
+   Cinematic Login Hero Visuals
+   ========================================================================== */
+
+.luxury-hero-container {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--midnight) 0%, var(--royal-navy) 45%, #18233C 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 24px 70px rgba(10, 13, 22, 0.45);
+}
+
+.luxury-hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(ellipse at 85% 15%, rgba(198, 161, 91, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(100, 21, 47, 0.3) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Dark Mode Overrides
+   ========================================================================== */
+
+body.dark-mode {
+  background-color: var(--midnight);
+  color: var(--champagne-light);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(198, 161, 91, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(100, 21, 47, 0.08) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, rgba(198, 161, 91, 0.02) 0px, rgba(198, 161, 91, 0.02) 1px, transparent 1px, transparent 12px);
+}
+
+body.dark-mode .luxury-card,
+body.dark-mode .kpi-luxury-card {
+  background: var(--surface-card-dark);
+  border-color: var(--border-gold);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--champagne);
+}
+
+body.dark-mode .table-luxury thead th {
+  background: rgba(10, 13, 22, 0.6);
+  color: var(--champagne);
+  border-color: var(--border-gold);
+}
+
+body.dark-mode .table-luxury tbody tr {
+  background: #141C30;
+}
+
+body.dark-mode .table-luxury tbody tr:hover {
+  background: #1B2540;
+}
+
+body.dark-mode .table-luxury td {
+  color: var(--champagne-light);
+  border-color: rgba(198, 161, 91, 0.15);
+}
+
+body.dark-mode .form-control-luxury,
+body.dark-mode .form-select-luxury {
+  background: #101728;
+  color: var(--champagne-light);
+  border-color: var(--border-gold);
+}
+
+body.dark-mode .form-control-luxury:focus,
+body.dark-mode .form-select-luxury:focus {
+  background: #151E34;
+}
+
+body.dark-mode .kpi-value {
+  color: var(--champagne);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .luxury-sidebar {
+    width: 80px;
+    padding: 20px 8px;
+  }
+  .luxury-sidebar .brand-title,
+  .luxury-sidebar .brand-sub,
+  .luxury-sidebar ul li button span,
+  .luxury-sidebar .luxury-user-panel .user-meta,
+  .luxury-logout-btn span {
+    display: none;
+  }
+  .luxury-sidebar ul li button,
+  .luxury-logout-btn {
+    justify-content: center;
+    padding: 12px;
+  }
+  .main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .luxury-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px 16px;
+  }
+  .luxury-header-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

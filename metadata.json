@@ -1,0 +1,8 @@
+{
+  "name": "TRIZEN Smart Textile Tracking System",
+  "description": "Smart Textile Management System for inventory, production tracking, worker management, order processing, and payment tracking with multi-role access control.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
